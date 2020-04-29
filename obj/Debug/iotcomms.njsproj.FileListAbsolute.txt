@@ -1,3 +1,0 @@
-C:\Users\rafae\source\repos\iotcomms\iotcomms\obj\Debug\iotcomms.njsprojAssemblyReference.cache
-C:\Users\rafae\source\repos\iotcomms\iotcomms\obj\Debug\iotcomms.njsproj.CoreCompileInputs.cache
-C:\Users\rafae\source\repos\iotcomms\iotcomms\bin\Microsoft.NodejsTools.WebRole.dll

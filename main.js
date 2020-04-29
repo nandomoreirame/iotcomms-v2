@@ -40,7 +40,11 @@ const workloads = [
 // DUST
 // device_id, latitude, longitude, timestamp
 
-// #iotcomms-app
+new Vue({
+    el: '#iotcomms-app',
+    components: {},
+    data: {}
+}
 
 $(function () {
     makeDraggable();
