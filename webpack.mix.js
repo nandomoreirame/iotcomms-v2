@@ -13,6 +13,8 @@ let mix = require('laravel-mix');
 
 mix.js('src/main.js', 'dist/scripts/bundle.js')
   .sass('src/main.scss', 'dist/styles/bundle.css')
+  .sourceMaps()
+  .disableNotifications()
 
 // Full API
 // mix.js(src, output);

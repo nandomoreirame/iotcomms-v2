@@ -1,0 +1,35 @@
+.row {
+  margin-left: -40px;
+  margin-right: -40px;
+}
+
+.row [class^='col-'] {
+  padding-right: 40px;
+  padding-left: 40px;
+}
+
+.select-row {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.link-row, .chart-row {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+@media (min-width: 1200px) {
+  .container-fluid {
+    max-width: 95%;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1561px) {
+  .container-fluid {
+    max-width: 1560px;
+  }
+}
