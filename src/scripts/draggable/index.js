@@ -7,15 +7,17 @@ $(function () {
       $(this).removeClass('disabled').text('Run!');
     }, 1000);
   });
-});
 
-$(function () {
   makeDraggable();
 
   $("[data-droppable]").droppable({
     accept: "[data-card]",
     tolerance: "intersect",
     drop: function (event, ui) {
+      $(ui.draggable).css({
+        top: 0,
+        left: 0
+      });
       if ($(this).find('div[data-card]').length === 0) {
         const $item = $(this).find('.item');
         const workloadId = $(ui.draggable).data('workload');
@@ -26,11 +28,6 @@ $(function () {
           height: '100%',
           width: '100%'
         }).removeClass('item');
-      } else {
-        $(ui.draggable).css({
-          top: 0,
-          left: 0
-        });
       }
       $(this).addClass("active");
     },
