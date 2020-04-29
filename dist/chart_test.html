@@ -1,161 +1,257 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Dynamic Updating Line Chart</title>
 
-    <!-- <link href="../../assets/styles.css" rel="stylesheet" /> -->
+<head>
+    <meta charset="UTF-8">
+    <title>IoT Comms</title>
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/bundle.css">
+</head>
 
-    <style>
+<body>
+    <div class="container-fluid">
+        <div id="iotcomms-app">
+            <div class="select-row row">
+                <div class="col-sm-4">
+                    <h4>Workloads and Sensors</h4>
+                    <div class="card">
+                        <div class="card-body">
+                            <div data-card class="ui-widget-content item draggable-item">
+                                <p>City</p>
+                            </div>
+                            <div data-card class="ui-widget-content item draggable-item">
+                                <p>S.Home</p>
+                            </div>
+                            <div data-card class="ui-widget-content item draggable-item">
+                                <p>Ind.IoT</p>
+                            </div>
+                            <div data-card class="ui-widget-content item draggable-item">
+                                <p>Sensor 1</p>
+                            </div>
+                            <div data-card class="ui-widget-content item draggable-item">
+                                <p>Sensor 2</p>
+                            </div>
+                            <div data-card class="ui-widget-content item draggable-item">
+                                <p>Sensor 3</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <h4>Transport Protocol and Network</h4>
+                    <div class="card">
+                        <div class="card-body">
+                            <div data-card class="ui-widget-content item draggable-item">
+                                <p>TCP</p>
+                            </div>
+                            <div data-card class="ui-widget-content item draggable-item">
+                                <p>UDP</p>
+                            </div>
+                            <div data-card class="ui-widget-content item draggable-item">
+                                <p>MQTT</p>
+                            </div>
+                            <div data-card class="ui-widget-content item draggable-item">
+                                <p>CoAP</p>
+                            </div>
+                            <div data-card class="ui-widget-content item draggable-item">
+                                <p>HTTP</p>
+                            </div>
+                        </div>
+                    </div>
 
-        #chart {
-      max-width: 650px;
-      margin: 35px auto;
-    }
+                </div>
+                <div class="col-sm-4">
+                    <h4>Application server</h4>
+                    <div class="card">
+                        <div class="card-body">
+                            <div data-card class="ui-widget-content item draggable-item">
+                                <p>SQL</p>
+                            </div>
+                            <div data-card class="ui-widget-content item draggable-item">
+                                <p>Kalman</p>
+                            </div>
+                            <div data-card class="ui-widget-content item draggable-item">
+                                <p>LR</p>
+                            </div>
+                            <div data-card class="ui-widget-content item draggable-item">
+                                <p>Decision Tree</p>
+                            </div>
+                            <div data-card class="ui-widget-content item draggable-item">
+                                <p>Range</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    </style>
+            <div class="link-row row">
+                <div class="col-sm-4">
+                    <div class="card card-one">
+                        <div class="card-header">
+                            Connected Workload: City
+                            <div class="ui-widget-header base"></div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label id="city-title" class="card-title">Data Rate</label>
+                                <p>5000 mgps</p>
+                            </div>
+                            <div class="form-group">
+                                <label class="card-title">Temperature</label>
+                                <p>device_id, latitude, longitude, timestamp</p>
+                            </div>
+                            <div class="form-group">
+                                <label class="card-title">Humidity</label>
+                                <p>device_id, latitude, longitude, timestamp</p>
+                            </div>
+                            <div class="form-group">
+                                <label class="card-title">Light</label>
+                                <p>device_id, latitude, longitude, timestamp</p>
+                            </div>
+                            <div class="form-group">
+                                <label class="card-title">Dust</label>
+                                <p>device_id, latitude, longitude, timestamp</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card card-two">
+                        <div class="card-header">
+                            Connected Workload: City
+                            <div class="ui-widget-header base"></div>
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="inputEmail4">MQTT Broker</label>
+                                    <input type="text" class="form-control" id="inputEmail4" placeholder="https://aws.mybroker.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword4">Topic</label>
+                                    <input type="text" class="form-control" id="inputPassword4" placeholder="/anex/livingroom/lights">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputState">State</label>
+                                    <select id="inputState" class="form-control">
+                                        <option selected>Choose...</option>
+                                        <option>...</option>
+                                    </select>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck" value="retain">
+                                    <label class="form-check-label" for="gridCheck">Retain</label>
+                                </div>
+                                <div class="form-group button">
+                                    <div></div>
+                                    <button type="submit" class="btn btn-primary">Save Configuration</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
 
-    <script>
-      window.Promise ||
-        document.write(
-          '<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"><\/script>'
-        )
-      window.Promise ||
-        document.write(
-          '<script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"><\/script>'
-        )
-      window.Promise ||
-        document.write(
-          '<script src="https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn"><\/script>'
-        )
-    </script>
+                <div class="col-sm-4">
+                    <div class="appserver-card card card-three">
+                        <div class="card-header">
+                            Application server
+                        </div>
+                        <div class="card-body">
+                            <div class="ui-widget-header base"></div>
+                            <div class="ui-widget-header base"></div>
+                            <div class="ui-widget-header base"></div>
+                            <div class="ui-widget-header base"></div>
+                            <div class="ui-widget-header base"></div>
+                            <div class="ui-widget-header base"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chart-row row">
+            <div class="col-sm-4">
+                <div id="app" class="card">
+                    <div id="chart" class="card-body">
+                        <apexchart type="area" height="350" ref="chart" :options="chartOptions" :series="series"></apexchart>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-sm-4">
+                <div id="latency_app" class="card">
+                    <div id="latency_chart" class="card-body">
+                        <apexchart type="area" height="350" ref="chart" :options="chartOptions" :series="series"></apexchart>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div id="server_cpu_app">
+                    <div class="chart-wrap card">
+                        <div id="server_cpu_chart" class="card-body">
+                            <apexchart type="donut" width="380" :options="chartOptions" :series="series"></apexchart>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <div class="chart-row row">
+            <div class="col-sm-4">
+                <div id="server_memory_app" class="card">
+                    <div id="server_memory_chart" class="card-body">
+                        <apexchart type="area" height="350" ref="chart" :options="chartOptions" :series="series"></apexchart>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-sm-4">
+                <div id="client_cpu_app" class="card">
+                    <div id="client_cpu_chart" class="card-body">
+                        <apexchart type="area" height="350" ref="chart" :options="chartOptions" :series="series"></apexchart>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div id="pie_app">
+                    <div class="chart-wrap card">
+                        <div id="pie_chart" class="card-body">
+                            <apexchart type="donut" width="380" :options="chartOptions" :series="series"></apexchart>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <!-- <script src="../../../dist/apexcharts.js"></script> -->
-  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script>
+            window.Promise ||
+                document.write(
+                    '<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"><\/script>'
+                )
+            window.Promise ||
+                document.write(
+                    '<script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"><\/script>'
+                )
+            window.Promise ||
+                document.write(
+                    '<script src="https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn"><\/script>'
+                )
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue-apexcharts"></script>
+        <script src="/scripts/bundle.js"></script>
 
+        
+    </div>
+</body>
 
-    <script>
-  var lastDate = 0;
-  var data = []
-  var TICKINTERVAL = 86400000
-  let XAXISRANGE = 777600000
-  function getDayWiseTimeSeries(baseval, count, yrange) {
-    var i = 0;
-    while (i < count) {
-      var x = baseval;
-      var y = Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
-
-      data.push({
-        x, y
-      });
-      lastDate = baseval
-      baseval += TICKINTERVAL;
-      i++;
-    }
-  }
-
-  getDayWiseTimeSeries(new Date('11 Feb 2017 GMT').getTime(), 10, {
-    min: 10,
-    max: 90
-  })
-
-  function getNewSeries(baseval, yrange) {
-    var newDate = baseval + TICKINTERVAL;
-    lastDate = newDate
-
-    for(var i = 0; i< data.length - 10; i++) {
-      // IMPORTANT
-      // we reset the x and y of the data which is out of drawing area
-      // to prevent memory leaks
-      data[i].x = newDate - XAXISRANGE - TICKINTERVAL
-      data[i].y = 0
-    }
-
-    data.push({
-      x: newDate,
-      y: Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min
-    })
-  }
-
-  function resetData(){
-    // Alternatively, you can also reset the data at certain intervals to prevent creating a huge series
-    data = data.slice(data.length - 10, data.length);
-  }
-  </script>
-  </head>
-
-  <body>
-     <div id="chart"></div>
-
-    <script>
-
-        var options = {
-          series: [{
-          data: data.slice()
-        }],
-          chart: {
-          id: 'realtime',
-          height: 350,
-          type: 'line',
-          animations: {
-            enabled: true,
-            easing: 'linear',
-            dynamicAnimation: {
-              speed: 1000
-            }
-          },
-          toolbar: {
-            show: false
-          },
-          zoom: {
-            enabled: false
-          }
-        },
-        dataLabels: {
-          enabled: false
-        },
-        stroke: {
-          curve: 'smooth'
-        },
-        title: {
-          text: 'Dynamic Updating Chart',
-          align: 'left'
-        },
-        markers: {
-          size: 0
-        },
-        xaxis: {
-          type: 'datetime',
-          range: XAXISRANGE,
-        },
-        yaxis: {
-          max: 100
-        },
-        legend: {
-          show: false
-        },
-        };
-
-        var chart = new ApexCharts(document.querySelector("#chart"), options);
-        chart.render();
-
-
-        window.setInterval(function () {
-        getNewSeries(lastDate, {
-          min: 10,
-          max: 90
-        })
-
-        chart.updateSeries([{
-          data: data
-        }])
-      }, 1000)
-
-    </script>
-
-
-  </body>
 </html>

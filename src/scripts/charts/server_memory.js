@@ -1,4 +1,4 @@
-﻿var lastDate = 0;
+var lastDate = 0;
 var data = []
 var TICKINTERVAL = 1
 let XAXISRANGE = 10
@@ -74,7 +74,7 @@ var options = {
     curve: 'smooth'
   },
   title: {
-    text: 'Throughput in Kmps',
+    text: 'Server Memory Utilization',
     align: 'left'
   },
   markers: {
@@ -93,14 +93,14 @@ var options = {
   },
   };
 
-  var chart = new ApexCharts(document.querySelector("#chart"), options);
+  var chart = new ApexCharts(document.querySelector("#server_memory_chart"), options);
   chart.render();
 
 
   window.setInterval(function () {
   getNewSeries(lastDate, {
-    min: 45,
-    max: 55
+    min: 10,
+    max: 15
   })
 
   chart.updateSeries([{
