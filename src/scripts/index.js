@@ -44,7 +44,7 @@ new Vue({
     el: '#iotcomms-app',
     components: {},
     data: {}
-}
+});
 
 $(function () {
     makeDraggable();
