@@ -5,6 +5,9 @@ $(function () {
     setTimeout(() => {
       $("[data-charts]").removeClass('d-none').removeClass('is-loading');
       $(this).removeClass('disabled').text('Run!');
+      $('html,body').animate({
+        scrollTop: $("[data-charts]").offset().top
+      }, 'slow');
     }, 1000);
   });
 
