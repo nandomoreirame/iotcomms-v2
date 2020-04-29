@@ -1,4 +1,15 @@
 $(function () {
+  $('[data-run]').click(function () {
+    $(this).addClass('disabled').text('Loading...');
+    $("[data-charts]").addClass('is-loading');
+    setTimeout(() => {
+      $("[data-charts]").removeClass('d-none').removeClass('is-loading');
+      $(this).removeClass('disabled').text('Run!');
+    }, 1000);
+  });
+});
+
+$(function () {
   makeDraggable();
 
   $("[data-droppable]").droppable({

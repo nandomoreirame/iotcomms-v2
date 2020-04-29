@@ -16,7 +16,7 @@ Vue.component('Workloads', Workloads)
 
 import './draggable';
 import './charts/iotcomms';
-import './charts/pie';
+// import './charts/pie';
 import './charts/latency';
 import './charts/server_cpu';
 import './charts/server_memory';
