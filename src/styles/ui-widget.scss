@@ -16,6 +16,10 @@
   margin: 0;
 }
 
+.draggable-item.ui-draggable-dragging {
+  z-index: 10000;
+}
+
 .ui-widget-content.draggable-item::before,
 .ui-droppable-hover.ui-droppable-active::before {
   content: '';
@@ -35,7 +39,7 @@
   z-index: 1;
 }
 
-.base {
+.base-droppable {
   height: 60px;
   width: 60px;
   display: inline-block;

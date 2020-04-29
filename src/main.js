@@ -1,1 +1,1 @@
-require('./scripts');
+import './scripts';

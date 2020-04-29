@@ -1,25 +1,26 @@
 $(function () {
   makeDraggable();
 
-  $(".base").droppable({
+  $("[data-droppable]").droppable({
     accept: "[data-card]",
     tolerance: "intersect",
     drop: function (event, ui) {
-      if ($(this).find('div[data-card]').length == 0) {
+      if ($(this).find('div[data-card]').length === 0) {
+        const $item = $(this).find('.item');
+        const workloadId = $(ui.draggable).data('workload');
         $(this).append(ui.draggable);
-        $(this).find(".item").css({
+        $item.css({
           left: 0,
           top: 0,
-          height: "100%",
-          width: "100%"
-        }).removeClass("item");
+          height: '100%',
+          width: '100%'
+        }).removeClass('item');
       } else {
         $(ui.draggable).css({
           top: 0,
           left: 0
         });
       }
-      console.log("triggered drop");
       $(this).addClass("active");
     },
     out: function (event, ui) {
@@ -34,13 +35,18 @@ $(function () {
 function makeDraggable() {
   console.log("hit");
   $('[data-card]').draggable({
-    appendTo: ".base",
+    appendTo: "[data-droppable]",
     start: function (e, ui) {
       failure = true; // reset the flag
     },
     revert: function () {
+      const $card = $(this).parent().parent().parent();
+
       $(this).parent().addClass("active");
-      $(this).parent().parent().parent().addClass("card-active");
+      $card.addClass("card-loading");
+      setTimeout(() => {
+        $card.addClass("card-active").removeClass("card-loading");
+      }, 1000);
       console.log("reverted");
       return failure;
     }

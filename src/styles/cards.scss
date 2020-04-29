@@ -68,6 +68,26 @@
 .card-three.card-active::before {
   width: 40px;
 }
+.card .card-header span,
+.card-two .card-body:not(.--loading),
+.card-one .card-body:not(.--loading) {
+  display: none;
+}
+.card.card-active .card-header span {
+  display: inline-block;
+}
+.card-two.card-active .card-body:not(.--loading),
+.card-one.card-active .card-body:not(.--loading) {
+  display: block;
+}
+
+.card .card-body.--loading {
+  display: none;
+}
+
+.card.card-loading .card-body.--loading {
+  display: block;
+}
 
 .card, .card-header {
   border: none 0;
@@ -91,6 +111,16 @@
   border-bottom: 8px solid rgba(0, 0, 0, 0.075);
   background-color: #fff;
 }
+
+.card-header p {
+  font-weight: 700;
+  margin: 0;
+}
+
+.card-header span {
+  font-weight: 500;
+}
+
 
 .card-header:first-child {
   border-radius: calc(20px - 1px) calc(20px - 1px) 0 0;

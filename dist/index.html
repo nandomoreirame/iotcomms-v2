@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <title>IoT Comms</title>
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="/styles/bundle.css">
 </head>
 
@@ -16,73 +14,48 @@
             <div class="select-row row">
                 <div class="col-sm-4">
                     <h4>Workloads and Sensors</h4>
-                    <div class="card">
-                        <div class="card-body">
-                            <div data-card class="ui-widget-content item draggable-item">
-                                <p>City</p>
-                            </div>
-                            <div data-card class="ui-widget-content item draggable-item">
-                                <p>S.Home</p>
-                            </div>
-                            <div data-card class="ui-widget-content item draggable-item">
-                                <p>Ind.IoT</p>
-                            </div>
-                            <div data-card class="ui-widget-content item draggable-item">
-                                <p>Sensor 1</p>
-                            </div>
-                            <div data-card class="ui-widget-content item draggable-item">
-                                <p>Sensor 2</p>
-                            </div>
-                            <div data-card class="ui-widget-content item draggable-item">
-                                <p>Sensor 3</p>
-                            </div>
-                        </div>
-                    </div>
+                    <Workloads></Workloads>
                 </div>
                 <div class="col-sm-4">
                     <h4>Transport Protocol and Network</h4>
-                    <div class="card">
-                        <div class="card-body">
-                            <div data-card class="ui-widget-content item draggable-item">
-                                <p>TCP</p>
-                            </div>
-                            <div data-card class="ui-widget-content item draggable-item">
-                                <p>UDP</p>
-                            </div>
-                            <div data-card class="ui-widget-content item draggable-item">
-                                <p>MQTT</p>
-                            </div>
-                            <div data-card class="ui-widget-content item draggable-item">
-                                <p>CoAP</p>
-                            </div>
-                            <div data-card class="ui-widget-content item draggable-item">
-                                <p>HTTP</p>
-                            </div>
-                        </div>
-                    </div>
+                    <Card>
+                      <div data-card class="ui-widget-content item draggable-item">
+                          <p>TCP</p>
+                      </div>
+                      <div data-card class="ui-widget-content item draggable-item">
+                          <p>UDP</p>
+                      </div>
+                      <div data-card class="ui-widget-content item draggable-item">
+                          <p>MQTT</p>
+                      </div>
+                      <div data-card class="ui-widget-content item draggable-item">
+                          <p>CoAP</p>
+                      </div>
+                      <div data-card class="ui-widget-content item draggable-item">
+                          <p>HTTP</p>
+                      </div>
+                    </Card>
 
                 </div>
                 <div class="col-sm-4">
                     <h4>Application server</h4>
-                    <div class="card">
-                        <div class="card-body">
-                            <div data-card class="ui-widget-content item draggable-item">
-                                <p>SQL</p>
-                            </div>
-                            <div data-card class="ui-widget-content item draggable-item">
-                                <p>Kalman</p>
-                            </div>
-                            <div data-card class="ui-widget-content item draggable-item">
-                                <p>LR</p>
-                            </div>
-                            <div data-card class="ui-widget-content item draggable-item">
-                                <p>Decision Tree</p>
-                            </div>
-                            <div data-card class="ui-widget-content item draggable-item">
-                                <p>Range</p>
-                            </div>
-                        </div>
-                    </div>
+                    <Card>
+                      <div data-card class="ui-widget-content item draggable-item">
+                          <p>SQL</p>
+                      </div>
+                      <div data-card class="ui-widget-content item draggable-item">
+                          <p>Kalman</p>
+                      </div>
+                      <div data-card class="ui-widget-content item draggable-item">
+                          <p>LR</p>
+                      </div>
+                      <div data-card class="ui-widget-content item draggable-item">
+                          <p>Decision Tree</p>
+                      </div>
+                      <div data-card class="ui-widget-content item draggable-item">
+                          <p>Range</p>
+                      </div>
+                    </Card>
                 </div>
             </div>
 
@@ -90,9 +63,10 @@
                 <div class="col-sm-4">
                     <div class="card card-one">
                         <div class="card-header">
-                            Connected Workload: City
-                            <div class="ui-widget-header base"></div>
+                            <p>Connected Workload: <span>City</span></p>
+                            <div class="ui-widget-header base-droppable" data-droppable></div>
                         </div>
+                        <div class="card-body --loading">Loading...</div>
                         <div class="card-body">
                             <div class="form-group">
                                 <label id="city-title" class="card-title">Data Rate</label>
@@ -120,9 +94,10 @@
                 <div class="col-sm-4">
                     <div class="card card-two">
                         <div class="card-header">
-                            Connected Workload: City
-                            <div class="ui-widget-header base"></div>
+                            <p>Connected Workload: <span>City</span></p>
+                            <div class="ui-widget-header base-droppable" data-droppable></div>
                         </div>
+                        <div class="card-body --loading">Loading...</div>
                         <div class="card-body">
                             <form>
                                 <div class="form-group">
@@ -134,20 +109,35 @@
                                     <input type="text" class="form-control" id="inputPassword4" placeholder="/anex/livingroom/lights">
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputState">State</label>
+                                    <label for="inputState">QoS</label>
                                     <select id="inputState" class="form-control">
-                                        <option selected>Choose...</option>
-                                        <option>...</option>
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option selected>2</option>
                                     </select>
                                 </div>
-                                <div class="form-check form-check-inline">
+                                <div class="form-group">
+                                    <label for="inputState">Output</label>
+                                    <select id="inputState" class="form-control">
+                                        <option value="auto">auto-detect (string or buffer)</option>
+                                        <option value="buffer">a Buffer</option>
+                                        <option value="utf8">a String</option>
+                                        <option value="json">a parsed JSON object</option>
+                                        <option value="base64">a Base64 encoded string</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword4">Name</label>
+                                    <input type="text" class="form-control" id="inputPassword4" placeholder="/anex/livingroom/lights">
+                                </div>
+                                <!-- <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="checkbox" id="gridCheck" value="retain">
                                     <label class="form-check-label" for="gridCheck">Retain</label>
                                 </div>
                                 <div class="form-group button">
                                     <div></div>
                                     <button type="submit" class="btn btn-primary">Save Configuration</button>
-                                </div>
+                                </div> -->
                             </form>
                         </div>
                     </div>
@@ -159,18 +149,19 @@
                             Application server
                         </div>
                         <div class="card-body">
-                            <div class="ui-widget-header base"></div>
-                            <div class="ui-widget-header base"></div>
-                            <div class="ui-widget-header base"></div>
-                            <div class="ui-widget-header base"></div>
-                            <div class="ui-widget-header base"></div>
-                            <div class="ui-widget-header base"></div>
+                            <div class="ui-widget-header base-droppable" data-droppable></div>
+                            <div class="ui-widget-header base-droppable" data-droppable></div>
+                            <div class="ui-widget-header base-droppable" data-droppable></div>
+                            <div class="ui-widget-header base-droppable" data-droppable></div>
+                            <div class="ui-widget-header base-droppable" data-droppable></div>
+                            <div class="ui-widget-header base-droppable" data-droppable></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="chart-row row">
+
+        <!-- <div class="chart-row row">
             <div class="col-sm-4">
                 <div id="app" class="card">
                     <div id="chart" class="card-body">
@@ -190,15 +181,11 @@
             <div class="col-sm-4">
                 One of three columns
             </div>
-        </div>
+        </div> -->
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
         <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet" />
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         <script>
             window.Promise ||
                 document.write(
@@ -213,9 +200,9 @@
                     '<script src="https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn"><\/script>'
                 )
         </script>
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script> -->
         <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vue-apexcharts"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/vue-apexcharts"></script> -->
         <script src="/scripts/bundle.js"></script>
 
         <!--
