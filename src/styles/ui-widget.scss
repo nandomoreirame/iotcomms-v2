@@ -20,8 +20,7 @@
   z-index: 10000;
 }
 
-.ui-widget-content.draggable-item::before,
-.ui-droppable-hover.ui-droppable-active::before {
+.ui-widget-content.draggable-item::before {
   content: '';
   background-color: #fff;
   background-image: url("/images/electrical-sensor.png");
@@ -49,21 +48,45 @@
   opacity: 0.65;
 }
 
-.ui-droppable-hover.ui-droppable-active,
-.ui-droppable.active {
+.ui-droppable-hover.base-droppable.ui-droppable-active,
+.ui-droppable.base-droppable.active {
   -webkit-box-shadow: 0 0 9px rgba(0, 123, 255, 0.25);
           box-shadow: 0 0 9px rgba(0, 123, 255, 0.25);
 }
 
-.ui-droppable.active .ui-widget-content.draggable-item {
-  margin: 0;
+.ui-droppable.base-droppable.active {
+  cursor: pointer;
+  position: relative;
+  pointer-events: none;
+
+  &::before {
+    content: '× remove';
+    display: block;
+    font-size: 10px;
+    text-transform: lowercase;
+    width: 100%;
+    position: absolute;
+    top: -15px;
+    text-align: center;
+    font-weight: 400;
+    display: none;
+  }
+
+  &:hover::before {
+    text-decoration: underline;
+  }
+
+  .ui-widget-content.draggable-item {
+    margin: 0;
+  }
+
+  .ui-widget-content.draggable-item p {
+    display: none;
+  }
+
+  .ui-widget-content.draggable-item::before {
+    width: 60px;
+    height: 60px;
+  }
 }
 
-.ui-droppable.active .ui-widget-content.draggable-item p {
-  display: none;
-}
-
-.ui-droppable.active .ui-widget-content.draggable-item::before {
-  width: 58px;
-  height: 58px;
-}

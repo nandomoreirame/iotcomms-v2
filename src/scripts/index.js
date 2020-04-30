@@ -5,7 +5,8 @@ import store from './store';
 
 import Card from './components/Card';
 import Workloads from './components/Workloads';
-import Charts from './components/Charts';
+import ProtocolNetworks from './components/ProtocolNetworks';
+// import Charts from './components/Charts';
 
 // import jQuery from 'jquery';
 // import 'bootstrap';
@@ -14,7 +15,8 @@ import Charts from './components/Charts';
 // Vue.use(VueApexCharts)
 Vue.component('Card', Card)
 Vue.component('Workloads', Workloads)
-Vue.component('Charts', Charts)
+Vue.component('ProtocolNetworks', ProtocolNetworks)
+// Vue.component('Charts', Charts)
 
 import './draggable';
 import './charts/iotcomms';

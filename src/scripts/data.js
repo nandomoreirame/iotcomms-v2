@@ -55,3 +55,26 @@ export const workloads = [
     sensors: cityWorkload
   },
 ];
+
+export const protocolNetworks = [
+  {
+    id: 'tcp',
+    title: 'TPC',
+  },
+  {
+    id: 'udp',
+    title: 'UDP',
+  },
+  {
+    id: 'mqtt',
+    title: 'MQTT',
+  },
+  {
+    id: 'coap',
+    title: 'CoAP',
+  },
+  {
+    id: 'http',
+    title: 'HTTP',
+  },
+];

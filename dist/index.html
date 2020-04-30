@@ -2,238 +2,289 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>IoT Comms</title>
-    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/bundle.css">
+  <meta charset="UTF-8">
+  <title>IoT Comms</title>
+  <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/styles/bundle.css">
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div id="iotcomms-app">
-            <div class="select-row row">
-                <div class="col-sm-4">
-                    <h4>Workloads and Sensors</h4>
-                    <Workloads></Workloads>
-                </div>
-                <div class="col-sm-4">
-                    <h4>Transport Protocol and Network</h4>
-                    <Card>
-                      <div data-card class="ui-widget-content item draggable-item">
-                          <p>TCP</p>
-                      </div>
-                      <div data-card class="ui-widget-content item draggable-item">
-                          <p>UDP</p>
-                      </div>
-                      <div data-card class="ui-widget-content item draggable-item">
-                          <p>MQTT</p>
-                      </div>
-                      <div data-card class="ui-widget-content item draggable-item">
-                          <p>CoAP</p>
-                      </div>
-                      <div data-card class="ui-widget-content item draggable-item">
-                          <p>HTTP</p>
-                      </div>
-                    </Card>
-
-                </div>
-                <div class="col-sm-4">
-                    <h4>Application server</h4>
-                    <Card>
-                      <div data-card class="ui-widget-content item draggable-item">
-                          <p>SQL</p>
-                      </div>
-                      <div data-card class="ui-widget-content item draggable-item">
-                          <p>Kalman</p>
-                      </div>
-                      <div data-card class="ui-widget-content item draggable-item">
-                          <p>LR</p>
-                      </div>
-                      <div data-card class="ui-widget-content item draggable-item">
-                          <p>Decision Tree</p>
-                      </div>
-                      <div data-card class="ui-widget-content item draggable-item">
-                          <p>Range</p>
-                      </div>
-                    </Card>
-                </div>
-            </div>
-
-            <div class="link-row row">
-                <div class="col-sm-4">
-                    <div class="card card-one">
-                        <div class="card-header">
-                            <p>Connected Workload: <span>City</span></p>
-                            <div class="ui-widget-header base-droppable" data-droppable></div>
-                        </div>
-                        <div class="card-body --loading">Loading...</div>
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label id="city-title" class="card-title">Data Rate</label>
-                                <p>5000 mgps</p>
-                            </div>
-                            <div class="form-group">
-                                <label class="card-title">Temperature</label>
-                                <p>device_id, latitude, longitude, timestamp</p>
-                            </div>
-                            <div class="form-group">
-                                <label class="card-title">Humidity</label>
-                                <p>device_id, latitude, longitude, timestamp</p>
-                            </div>
-                            <div class="form-group">
-                                <label class="card-title">Light</label>
-                                <p>device_id, latitude, longitude, timestamp</p>
-                            </div>
-                            <div class="form-group">
-                                <label class="card-title">Dust</label>
-                                <p>device_id, latitude, longitude, timestamp</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="card card-two">
-                        <div class="card-header">
-                            <p>Connected Workload: <span>City</span></p>
-                            <div class="ui-widget-header base-droppable" data-droppable></div>
-                        </div>
-                        <div class="card-body --loading">Loading...</div>
-                        <div class="card-body">
-                            <form>
-                                <div class="form-group">
-                                    <label for="inputEmail4">MQTT Broker</label>
-                                    <input type="text" class="form-control" id="inputEmail4" placeholder="https://aws.mybroker.com" value="https://aws.mybroker.com">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputPassword4">Topic</label>
-                                    <input type="text" class="form-control" id="inputPassword4" placeholder="/anex/livingroom/lights" value="anex">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputState">QoS</label>
-                                    <select id="inputState" class="form-control">
-                                        <option>0</option>
-                                        <option>1</option>
-                                        <option selected>2</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputState">Output</label>
-                                    <select id="inputState" class="form-control">
-                                        <option value="auto">auto-detect (string or buffer)</option>
-                                        <option value="buffer" selected>a Buffer</option>
-                                        <option value="utf8">a String</option>
-                                        <option value="json">a parsed JSON object</option>
-                                        <option value="base64">a Base64 encoded string</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputPassword4">Name</label>
-                                    <input type="text" class="form-control" id="inputPassword4" placeholder="Name" value="anex">
-                                </div>
-                                <!-- <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="gridCheck" value="retain">
-                                    <label class="form-check-label" for="gridCheck">Retain</label>
-                                </div>
-                                <div class="form-group button">
-                                    <div></div>
-                                    <button type="submit" class="btn btn-primary">Save Configuration</button>
-                                </div> -->
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4">
-                    <div class="appserver-card card card-three">
-                        <div class="card-header">
-                            Application server
-                        </div>
-                        <div class="card-body">
-                            <div class="ui-widget-header base-droppable" data-droppable></div>
-                            <div class="ui-widget-header base-droppable" data-droppable></div>
-                            <div class="ui-widget-header base-droppable" data-droppable></div>
-                            <div class="ui-widget-header base-droppable" data-droppable></div>
-                            <div class="ui-widget-header base-droppable" data-droppable></div>
-                            <div class="ui-widget-header base-droppable" data-droppable></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div class="container-fluid">
+    <div id="iotcomms-app">
+      <div class="select-row row">
+        <div class="col-sm-4">
+          <h4>Workloads and Sensors</h4>
+          <workloads></workloads>
         </div>
-
-        <div class="run-button row">
-          <button type="button" class="btn btn-success" data-run>Run!</button>
+        <div class="col-sm-4">
+          <h4>Transport Protocol and Network</h4>
+          <protocol-networks></protocol-networks>
         </div>
+        <div class="col-sm-4">
+          <h4>Application server</h4>
+          <Card :droppable="true" id="ApplicationServer">
+            <div data-card class="ui-widget-content item draggable-item" data-draggable>
+              <p>SQL</p>
+            </div>
+            <div data-card class="ui-widget-content item draggable-item" data-draggable>
+              <p>Kalman</p>
+            </div>
+            <div data-card class="ui-widget-content item draggable-item" data-draggable>
+              <p>LR</p>
+            </div>
+            <div data-card class="ui-widget-content item draggable-item" data-draggable>
+              <p>Decision Tree</p>
+            </div>
+            <div data-card class="ui-widget-content item draggable-item" data-draggable>
+              <p>Range</p>
+            </div>
+          </Card>
+        </div>
+      </div>
 
-        <div data-charts class="d-none">
-          <div class="chart-row row">
-              <div class="col-sm-4">
-                  <div id="app" class="card">
-                      <div id="chart" class="card-body"></div>
-                  </div>
+      <div class="link-row row">
+        <div class="col-sm-4">
+          <div class="card card-one">
+            <div class="card-header">
+              <p>Connected Workload: <span></span></p>
+              <div class="ui-widget-header base-droppable" data-droppable></div>
+            </div>
+            <div class="card-body --loading">Loading...</div>
+            <div class="card-body card-data-city">
+              <div class="form-group">
+                <label id="city-title" class="card-title">Data Rate</label>
+                <p>5000 mgps</p>
               </div>
-
-              <div class="col-sm-4">
-                  <div id="latency_app" class="card">
-                      <div id="latency_chart" class="card-body"></div>
-                  </div>
+              <div class="form-group">
+                <label class="card-title">Temperature</label>
+                <p>device_id, latitude, longitude, timestamp</p>
               </div>
-              <div class="col-sm-4">
-                  <div id="server_cpu_app">
-                      <div class="chart-wrap card">
-                          <div id="server_cpu_chart" class="card-body"></div>
-                      </div>
-                  </div>
+              <div class="form-group">
+                <label class="card-title">Humidity</label>
+                <p>device_id, latitude, longitude, timestamp</p>
               </div>
+              <div class="form-group">
+                <label class="card-title">Light</label>
+                <p>device_id, latitude, longitude, timestamp</p>
+              </div>
+              <div class="form-group">
+                <label class="card-title">Dust</label>
+                <p>device_id, latitude, longitude, timestamp</p>
+              </div>
+            </div>
+            <div class="card-body card-data-shome">
+              <div class="form-group">
+                <label id="city-title" class="card-title">Data Rate</label>
+                <p>2000 mgps</p>
+              </div>
+              <div class="form-group">
+                <label class="card-title">Temperature</label>
+                <p>device_id, timestamp</p>
+              </div>
+              <div class="form-group">
+                <label class="card-title">Humidity</label>
+                <p>device_id, timestamp</p>
+              </div>
+              <div class="form-group">
+                <label class="card-title">Light</label>
+                <p>device_id, timestamp</p>
+              </div>
+              <div class="form-group">
+                <label class="card-title">Dust</label>
+                <p>device_id, timestamp</p>
+              </div>
+            </div>
           </div>
-
-          <div class="chart-row row">
-              <div class="col-sm-4">
-                  <div id="server_memory_app" class="card">
-                      <div id="server_memory_chart" class="card-body"></div>
-                  </div>
-              </div>
-
-              <div class="col-sm-4">
-                  <div id="client_cpu_app" class="card">
-                      <div id="client_cpu_chart" class="card-body"></div>
-                  </div>
-              </div>
-              <div class="col-sm-4">
-                  <!-- <div id="pie_app">
-                      <div class="chart-wrap card">
-                          <div id="pie_chart" class="card-body">
-                              <apexchart type="donut" width="380" :options="chartOptions" :series="series"></apexchart>
-                          </div>
-                      </div>
-                  </div> -->
-              </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card card-two">
+            <div class="card-header">
+              <p>Connected Workload: <span></span></p>
+              <div class="ui-widget-header base-droppable" data-droppable></div>
+            </div>
+            <div class="card-body --loading">Loading...</div>
+            <div class="card-body card-data-mqtt">
+              <form>
+                <div class="form-group">
+                  <label for="inputPassword4">Name</label>
+                  <input type="text" class="form-control" id="inputPassword4">
+                </div>
+                <div class="form-group">
+                  <label for="inputEmail4">MQTT Broker</label>
+                  <input type="text" class="form-control" id="inputEmail4"
+                    placeholder="https://aws.mybroker.com" value="https://aws.mybroker.com">
+                </div>
+                <div class="form-group">
+                  <label for="inputPassword4">Topic</label>
+                  <input type="text" class="form-control" id="inputPassword4"
+                    placeholder="/anex/livingroom/lights" value="anex">
+                </div>
+                <div class="form-group">
+                  <label for="inputState">QoS</label>
+                  <select id="inputState" class="form-control">
+                    <option>0</option>
+                    <option>1</option>
+                    <option selected>2</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="inputState">Output</label>
+                  <select id="inputState" class="form-control">
+                    <option value="auto">auto-detect (string or buffer)</option>
+                    <option value="buffer" selected>a Buffer</option>
+                    <option value="utf8">a String</option>
+                    <option value="json">a parsed JSON object</option>
+                    <option value="base64">a Base64 encoded string</option>
+                  </select>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck" value="retain">
+                    <label class="form-check-label" for="gridCheck">Retain</label>
+                </div>
+                <!--
+                <div class="form-group button">
+                    <div></div>
+                    <button type="submit" class="btn btn-primary">Save Configuration</button>
+                </div> -->
+              </form>
+            </div>
+            <div class="card-body card-data-http">
+              <form>
+                <div class="form-group">
+                  <label for="inputPassword4">Name</label>
+                  <input type="text" class="form-control" id="inputPassword4">
+                </div>
+                <div class="form-group">
+                  <label for="inputMethod">Method</label>
+                  <select id="inputMethod" class="form-control">
+                    <option value="GET">GET</option>
+                    <option value="POST">POST</option>
+                    <option value="PUT">PUT</option>
+                    <option value="DELETE">DELETE</option>
+                    <option value="HEAD">HEAD</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="inputUrl">URL</label>
+                  <input type="text" class="form-control" id="inputUrl"
+                    placeholder="https://" value="https://">
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="appendParameters">
+                  <label class="form-check-label" for="appendParameters">Append msg.payload as query string parameters</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="secureConnection">
+                  <label class="form-check-label" for="secureConnection">Enable secure (SSL/TLS) connection</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="useAuthentication">
+                  <label class="form-check-label" for="useAuthentication">Use authentication</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="UseProxy">
+                  <label class="form-check-label" for="UseProxy">Use proxy</label>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-        <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet" />
-        <script>
-            window.Promise ||
-                document.write(
-                    '<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"><\/script>'
-                )
-            window.Promise ||
-                document.write(
-                    '<script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"><\/script>'
-                )
-            window.Promise ||
-                document.write(
-                    '<script src="https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn"><\/script>'
-                )
-        </script>
-        <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script> -->
-        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-        <!-- <script src="https://cdn.jsdelivr.net/npm/vue-apexcharts"></script> -->
-        <script src="/scripts/bundle.js"></script>
+        <div class="col-sm-4">
+          <div class="appserver-card card card-three">
+            <div class="card-header">
+              Application server
+            </div>
+            <div class="card-body">
+              <div class="ui-widget-header base-droppable" data-droppable></div>
+              <div class="ui-widget-header base-droppable" data-droppable></div>
+              <div class="ui-widget-header base-droppable" data-droppable></div>
+              <div class="ui-widget-header base-droppable" data-droppable></div>
+              <div class="ui-widget-header base-droppable" data-droppable></div>
+              <div class="ui-widget-header base-droppable" data-droppable></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-        <!--
+    <div class="run-button row">
+      <button type="button" class="btn btn-success" data-run>Run!</button>
+    </div>
+
+    <div data-charts class="d-none">
+      <div class="chart-row row">
+        <div class="col-sm-4">
+          <div id="app" class="card">
+            <div id="chart" class="card-body"></div>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div id="latency_app" class="card">
+            <div id="latency_chart" class="card-body"></div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div id="server_cpu_app">
+            <div class="chart-wrap card">
+              <div id="server_cpu_chart" class="card-body"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart-row row">
+        <div class="col-sm-4">
+          <div id="server_memory_app" class="card">
+            <div id="server_memory_chart" class="card-body"></div>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div id="client_cpu_app" class="card">
+            <div id="client_cpu_chart" class="card-body"></div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <!-- <div id="pie_app">
+              <div class="chart-wrap card">
+                <div id="pie_chart" class="card-body">
+                  <apexchart type="donut" width="380" :options="chartOptions" :series="series"></apexchart>
+                </div>
+              </div>
+            </div> -->
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link
+      href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"
+      rel="stylesheet" />
+    <script>
+      window.Promise ||
+        document.write(
+          '<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"><\/script>'
+        )
+      window.Promise ||
+        document.write(
+          '<script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"><\/script>'
+        )
+      window.Promise ||
+        document.write(
+          '<script src="https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn"><\/script>'
+        )
+
+    </script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue-apexcharts"></script> -->
+    <script src="/scripts/bundle.js"></script>
+
+    <!--
         <div class="col-sm-4">
             <h1>Workload Generator</h1>
             <div class="dropdown">
@@ -273,7 +324,7 @@
             </div>
         </div>
     -->
-    </div>
+  </div>
 </body>
 
 </html>

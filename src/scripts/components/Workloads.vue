@@ -1,7 +1,7 @@
 <template>
-  <Card>
-    <div v-for="(workload, k) in workloads" :key="k" data-card :data-workload="k" class="ui-widget-content item draggable-item">
-      <p>{{ workload.title }}</p>
+  <Card id="Workloads" :droppable="true">
+    <div v-for="(item, k) in workloads" :key="k" data-draggable :data-item-id="item.id" class="ui-widget-content item draggable-item">
+      <p>{{ item.title }}</p>
     </div>
   </Card>
 </template>
@@ -11,8 +11,6 @@ import { mapState } from 'vuex';
 
 export default {
   name: 'Workloads',
-  data: () => ({
-  }),
   computed: {
     ...mapState({
       workloads: ({ workloads }) => workloads,
