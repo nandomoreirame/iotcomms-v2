@@ -32,8 +32,40 @@
   width: 50px;
 }
 
+.ui-widget-content.draggable-item.workloads-icon::before {
+  background-image: url("/images/technology.svg");
+}
+
+.ui-widget-content.draggable-item.protocol-networks-icon::before {
+  background-image: url("/images/protocol-networks-icon.svg");
+}
+
+.ui-widget-content.draggable-item.application-server-icon::before {
+  background-image: url("/images/technology1.svg");
+}
+
+.ui-widget-content.draggable-item.sql-icon::before {
+  background-image: url("/images/sql-icon.svg");
+}
+
+.ui-widget-content.draggable-item.range-icon::before {
+  background-image: url("/images/range-icon.svg");
+}
+
+.ui-widget-content.draggable-item.kalman-icon::before {
+  background-image: url("/images/kalman-icon.svg");
+}
+
+.ui-widget-content.draggable-item.lr-icon::before {
+  background-image: url("/images/lr-icon.svg");
+}
+
+.ui-widget-content.draggable-item.decision-tree-icon::before {
+  background-image: url("/images/decision-tree-icon.svg");
+}
+
 .ui-widget-content.draggable-item::before {
-  border: 1px solid rgba(0,0,0,.05);
+  border: 1px solid rgba(0, 0, 0, .05);
   margin: 0 auto;
   z-index: 1;
 }
@@ -51,7 +83,7 @@
 .ui-droppable-hover.base-droppable.ui-droppable-active,
 .ui-droppable.base-droppable.active {
   -webkit-box-shadow: 0 0 9px rgba(0, 123, 255, 0.25);
-          box-shadow: 0 0 9px rgba(0, 123, 255, 0.25);
+  box-shadow: 0 0 9px rgba(0, 123, 255, 0.25);
 }
 
 .ui-droppable.base-droppable.active {
@@ -89,4 +121,3 @@
     height: 60px;
   }
 }
-

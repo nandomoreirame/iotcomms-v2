@@ -5,7 +5,7 @@
       :key="k"
       data-draggable
       :data-item-id="item.id"
-      class="ui-widget-content item draggable-item">
+      class="ui-widget-content item draggable-item workloads-icon">
       <p>{{ item.title }}</p>
     </div>
   </Card>

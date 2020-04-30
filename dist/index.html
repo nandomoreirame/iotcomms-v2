@@ -1,10 +1,12 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>IoT Comms</title>
   <link rel="stylesheet" href="/styles/bundle.css">
 </head>
+
 <body>
   <div class="container-fluid">
     <div id="iotcomms-app">
@@ -20,19 +22,20 @@
         <div class="col-sm-4">
           <h4>Application server</h4>
           <Card :droppable="true" id="ApplicationServer">
-            <div data-card class="ui-widget-content item draggable-item" data-draggable>
+            <div data-card class="ui-widget-content item draggable-item sql-icon" data-draggable>
               <p>SQL</p>
             </div>
-            <div data-card class="ui-widget-content item draggable-item" data-draggable>
+            <div data-card class="ui-widget-content item draggable-item kalman-icon" data-draggable>
               <p>Kalman</p>
             </div>
-            <div data-card class="ui-widget-content item draggable-item" data-draggable>
+            <div data-card class="ui-widget-content item draggable-item lr-icon" data-draggable>
               <p>LR</p>
             </div>
-            <div data-card class="ui-widget-content item draggable-item" data-draggable>
+            <div data-card class="ui-widget-content item draggable-item decision-tree-icon"
+              data-draggable>
               <p>Decision Tree</p>
             </div>
-            <div data-card class="ui-widget-content item draggable-item" data-draggable>
+            <div data-card class="ui-widget-content item draggable-item range-icon" data-draggable>
               <p>Range</p>
             </div>
           </Card>
@@ -135,8 +138,8 @@
                   </select>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck" value="retain">
-                    <label class="form-check-label" for="gridCheck">Retain</label>
+                  <input class="form-check-input" type="checkbox" id="gridCheck" value="retain">
+                  <label class="form-check-label" for="gridCheck">Retain</label>
                 </div>
                 <!--
                 <div class="form-group button">
@@ -163,16 +166,18 @@
                 </div>
                 <div class="form-group">
                   <label for="inputUrl">URL</label>
-                  <input type="text" class="form-control" id="inputUrl"
-                    placeholder="https://" value="https://">
+                  <input type="text" class="form-control" id="inputUrl" placeholder="https://"
+                    value="https://">
                 </div>
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" id="appendParameters">
-                  <label class="form-check-label" for="appendParameters">Append msg.payload as query string parameters</label>
+                  <label class="form-check-label" for="appendParameters">Append msg.payload as query
+                    string parameters</label>
                 </div>
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" id="secureConnection">
-                  <label class="form-check-label" for="secureConnection">Enable secure (SSL/TLS) connection</label>
+                  <label class="form-check-label" for="secureConnection">Enable secure (SSL/TLS)
+                    connection</label>
                 </div>
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" id="useAuthentication">
