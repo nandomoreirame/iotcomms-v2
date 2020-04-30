@@ -1,6 +1,11 @@
 <template>
   <Card id="Workloads" :droppable="true">
-    <div v-for="(item, k) in workloads" :key="k" data-draggable :data-item-id="item.id" class="ui-widget-content item draggable-item">
+    <div
+      v-for="(item, k) in workloads"
+      :key="k"
+      data-draggable
+      :data-item-id="item.id"
+      class="ui-widget-content item draggable-item">
       <p>{{ item.title }}</p>
     </div>
   </Card>

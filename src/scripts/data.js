@@ -3,10 +3,10 @@ export const cityWorkload = [
     type: 'actor', // sensor - hybrid
     label: 'TEMPERATURE',
     data: {
-      'device_id': 'string',
-      'latitude': 'float',
-      'longitude': 'float',
-      'timestamp': 'datetime'
+      device_id: 'string',
+      latitude: 'float',
+      longitude: 'float',
+      timestamp: 'datetime',
     },
     dataRate: 30,
   },
@@ -14,45 +14,45 @@ export const cityWorkload = [
     type: 'actor', // sensor - hybrid
     label: 'HUMIDITY',
     data: {
-      'device_id': 'string',
-      'latitude': 'float',
-      'longitude': 'float',
-      'timestamp': 'datetime'
+      device_id: 'string',
+      latitude: 'float',
+      longitude: 'float',
+      timestamp: 'datetime',
     },
-    dataRate: 30
-  }
+    dataRate: 30,
+  },
 ];
 
 export const workloads = [
   {
     id: 'city',
     title: 'City',
-    sensors: cityWorkload
+    sensors: cityWorkload,
   },
   {
     id: 'shome',
     title: 'S.Home',
-    sensors: cityWorkload
+    sensors: cityWorkload,
   },
   {
     id: 'indiot',
     title: 'Ind.IoT',
-    sensors: cityWorkload
+    sensors: cityWorkload,
   },
   {
     id: 'sensor1',
     title: 'Sensor 1',
-    sensors: cityWorkload
+    sensors: cityWorkload,
   },
   {
     id: 'sensor2',
     title: 'Sensor 2',
-    sensors: cityWorkload
+    sensors: cityWorkload,
   },
   {
     id: 'sensor3',
     title: 'Sensor 3',
-    sensors: cityWorkload
+    sensors: cityWorkload,
   },
 ];
 
