@@ -1,7 +1,6 @@
 const workloadIds = [ 'city', 'shome', 'indiot', 'sensor1', 'sensor2', 'sensor3' ];
 const protocolNetworksIds = [ 'tcp', 'udp', 'mqtt', 'coap', 'http' ];
 
-
 $(function () {
   $('[data-run]').click(function () {
     $(this).addClass('disabled').text('Loading...');
@@ -9,9 +8,7 @@ $(function () {
     setTimeout(() => {
       $("[data-charts]").removeClass('d-none').removeClass('is-loading');
       $(this).removeClass('disabled').text('Run!');
-      $('html,body').animate({
-        scrollTop: $("[data-charts]").offset().top
-      }, 'slow');
+      window.location.href = '/charts.html';
     }, 1000);
   });
 
@@ -90,7 +87,6 @@ function makeDraggable() {
       failure = true; // reset the flag
     },
     revert: function () {
-      console.log("reverted");
       return failure;
     }
   });

@@ -11,8 +11,9 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('src/main.js', 'dist/scripts/bundle.js')
-  .sass('src/main.scss', 'dist/styles/bundle.css')
+mix.js('src/scripts/main.js', 'dist/scripts/main-bundle.js')
+  .js('src/scripts/charts.js', 'dist/scripts/charts-bundle.js')
+  .sass('src/styles/main.scss', 'dist/styles/bundle.css')
   .sourceMaps()
   .disableNotifications()
 

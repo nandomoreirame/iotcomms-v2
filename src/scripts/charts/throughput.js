@@ -1,15 +1,16 @@
-// import ApexCharts from 'apexcharts';
-
-let lastDate = 0;
+﻿let lastDate = 0;
 let data = []
 let TICKINTERVAL = 1
 let XAXISRANGE = 10
 
-const getNewSeries = (baseval, yrange) => {
+function getNewSeries(baseval, yrange) {
   let newDate = baseval + TICKINTERVAL;
   lastDate = newDate
 
   for (let i = 0; i < data.length - 10; i++) {
+    // IMPORTANT
+    // we reset the x and y of the data which is out of drawing area
+    // to prevent memory leaks
     data[i].x = newDate - XAXISRANGE - TICKINTERVAL
     data[i].y = 0
   }
@@ -17,16 +18,15 @@ const getNewSeries = (baseval, yrange) => {
   data.push({
     x: newDate,
     y: Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min
-  });
-
-  return data;
+  })
 }
 
-const resetData = () => {
+function resetData() {
+  // Alternatively, you can also reset the data at certain intervals to prevent creating a huge series
   data = data.slice(data.length - 10, data.length);
 }
 
-const options = {
+let options = {
   series: [{
     data: data.slice()
   }],
@@ -55,7 +55,7 @@ const options = {
     curve: 'smooth'
   },
   title: {
-    text: 'Latency in ms',
+    text: 'Throughput in Kmps',
     align: 'left'
   },
   markers: {
@@ -74,12 +74,15 @@ const options = {
   },
 };
 
-const chart = new ApexCharts(document.querySelector("#latency_chart"), options);
+let iotChart = new ApexCharts(document.querySelector("#chart"), options);
+iotChart.render();
 
-chart.render();
-
-window.setInterval(() => {
-  const newData = getNewSeries(lastDate, { min: 35, max: 20 });
-  chart.updateSeries([{ data: newData }]);
-}, 1000);
-
+window.setInterval(function () {
+  getNewSeries(lastDate, {
+    min: 45,
+    max: 55
+  });
+  iotChart.updateSeries([{
+    data: data
+  }]);
+}, 1000)

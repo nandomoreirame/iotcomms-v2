@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IoT Comms</title>
+  <link rel="stylesheet" href="/styles/bundle.css">
+</head>
+<body>
+  <div class="container-fluid">
+    <a href="/" class="btn btn-light">
+      <svg class="bi bi-arrow-left-short" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M7.854 4.646a.5.5 0 010 .708L5.207 8l2.647 2.646a.5.5 0 01-.708.708l-3-3a.5.5 0 010-.708l3-3a.5.5 0 01.708 0z" clip-rule="evenodd"/>
+        <path fill-rule="evenodd" d="M4.5 8a.5.5 0 01.5-.5h6.5a.5.5 0 010 1H5a.5.5 0 01-.5-.5z" clip-rule="evenodd"/>
+      </svg>
+      Back
+    </a>
+
+    <div class="chart-row row">
+      <div class="col-sm-4">
+        <div id="app" class="card">
+          <div id="chart" class="card-body"></div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div id="latency_app" class="card">
+          <div id="latency_chart" class="card-body"></div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div id="server_cpu_app">
+          <div class="chart-wrap card">
+            <div id="server_cpu_chart" class="card-body"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chart-row row">
+      <div class="col-sm-4">
+        <div id="server_memory_app" class="card">
+          <div id="server_memory_chart" class="card-body"></div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div id="client_cpu_app" class="card">
+          <div id="client_cpu_chart" class="card-body"></div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="chart-wrap card">
+          <div id="pie_chart" class="card-body">
+            <span class="pie-loading">Loading...</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.Promise ||
+      document.write(
+        '<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"><\/script>'
+      )
+    window.Promise ||
+      document.write(
+        '<script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"><\/script>'
+      )
+    window.Promise ||
+      document.write(
+        '<script src="https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn"><\/script>'
+      )
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="/scripts/charts-bundle.js"></script>
+</body>
+</html>

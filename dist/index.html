@@ -1,14 +1,10 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <title>IoT Comms</title>
-  <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&display=swap"
-    rel="stylesheet">
   <link rel="stylesheet" href="/styles/bundle.css">
 </head>
-
 <body>
   <div class="container-fluid">
     <div id="iotcomms-app">
@@ -210,121 +206,54 @@
     </div>
 
     <div class="run-button row">
-      <button type="button" class="btn btn-success" data-run>Run!</button>
+      <button type="button" class="btn btn-success btn-lg" data-run>Run!</button>
     </div>
-
-    <div data-charts class="d-none">
-      <div class="chart-row row">
-        <div class="col-sm-4">
-          <div id="app" class="card">
-            <div id="chart" class="card-body"></div>
-          </div>
-        </div>
-
-        <div class="col-sm-4">
-          <div id="latency_app" class="card">
-            <div id="latency_chart" class="card-body"></div>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div id="server_cpu_app">
-            <div class="chart-wrap card">
-              <div id="server_cpu_chart" class="card-body"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="chart-row row">
-        <div class="col-sm-4">
-          <div id="server_memory_app" class="card">
-            <div id="server_memory_chart" class="card-body"></div>
-          </div>
-        </div>
-
-        <div class="col-sm-4">
-          <div id="client_cpu_app" class="card">
-            <div id="client_cpu_chart" class="card-body"></div>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <!-- <div id="pie_app">
-              <div class="chart-wrap card">
-                <div id="pie_chart" class="card-body">
-                  <apexchart type="donut" width="380" :options="chartOptions" :series="series"></apexchart>
-                </div>
-              </div>
-            </div> -->
-        </div>
-      </div>
-    </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <link
-      href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"
-      rel="stylesheet" />
-    <script>
-      window.Promise ||
-        document.write(
-          '<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"><\/script>'
-        )
-      window.Promise ||
-        document.write(
-          '<script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"><\/script>'
-        )
-      window.Promise ||
-        document.write(
-          '<script src="https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn"><\/script>'
-        )
-
-    </script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vue-apexcharts"></script> -->
-    <script src="/scripts/bundle.js"></script>
-
-    <!--
-        <div class="col-sm-4">
-            <h1>Workload Generator</h1>
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   Select Workload
-                </button>
-                <div id="workload_select" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">CITY</a>
-                    <a class="dropdown-item" href="#">GRID</a>
-                    <a class="dropdown-item" href="#">Smart Home</a>
-                    <a class="dropdown-item" href="#">TAXI</a>
-                    <a class="dropdown-item" href="#">FIT</a>
-                    <a class="dropdown-item" href="#">Factory Automation</a>
-                    <a class="dropdown-item" href="#">Thermostat</a>
-                </div>
-            </div>
-            <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">Sensor message rate</span>
-                </div>
-                <input type="text" aria-label="min" class="form-control">
-                <input type="text" aria-label="max" class="form-control">
-            </div>
-            <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">% error per device</span>
-                </div>
-                <input type="text" aria-label="min" class="form-control">
-
-            </div>
-            <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">Number of sensors</span>
-                </div>
-                <input type="text" aria-label="min" class="form-control">
-
-            </div>
-        </div>
-    -->
   </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="/scripts/main-bundle.js"></script>
+
+  <!--
+      <div class="col-sm-4">
+          <h1>Workload Generator</h1>
+          <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 Select Workload
+              </button>
+              <div id="workload_select" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">CITY</a>
+                  <a class="dropdown-item" href="#">GRID</a>
+                  <a class="dropdown-item" href="#">Smart Home</a>
+                  <a class="dropdown-item" href="#">TAXI</a>
+                  <a class="dropdown-item" href="#">FIT</a>
+                  <a class="dropdown-item" href="#">Factory Automation</a>
+                  <a class="dropdown-item" href="#">Thermostat</a>
+              </div>
+          </div>
+          <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Sensor message rate</span>
+              </div>
+              <input type="text" aria-label="min" class="form-control">
+              <input type="text" aria-label="max" class="form-control">
+          </div>
+          <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">% error per device</span>
+              </div>
+              <input type="text" aria-label="min" class="form-control">
+
+          </div>
+          <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Number of sensors</span>
+              </div>
+              <input type="text" aria-label="min" class="form-control">
+
+          </div>
+      </div>
+  -->
 </body>
 
 </html>

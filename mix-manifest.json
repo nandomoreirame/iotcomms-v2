@@ -1,4 +1,5 @@
 {
-    "/dist/scripts/bundle.js": "/dist/scripts/bundle.js",
+    "/dist/scripts/charts-bundle.js": "/dist/scripts/charts-bundle.js",
+    "/dist/scripts/main-bundle.js": "/dist/scripts/main-bundle.js",
     "/dist/styles/bundle.css": "/dist/styles/bundle.css"
 }
