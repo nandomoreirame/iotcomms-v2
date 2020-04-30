@@ -63,7 +63,7 @@ $(function () {
     $('[data-charts]').addClass('is-loading');
     setTimeout(() => {
       $('[data-charts]').removeClass('d-none').removeClass('is-loading');
-      $(this).removeClass('disabled').text('Run!');
+      // $(this).removeClass('disabled').text('Run!');
       window.location.href = '/charts.html';
     }, 1000);
   });
